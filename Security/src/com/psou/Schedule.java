@@ -58,7 +58,7 @@ public class Schedule extends JFrame{
                 try {
                     BufferedWriter writer = new BufferedWriter(new FileWriter("Staff.txt",true));
                     String Nam = Name.getText();
-                    writer.write(Nam+"#\n");
+                    writer.write(Nam+"\n");
                     //writer.close();
                     String Ph = Phone.getText();
                     writer.write(Ph+"\n");
