@@ -1,0 +1,40 @@
+Index: complaints.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>243f2#\n213@\n1231rfe$\ndsf#\n332f@\nfds32$\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- complaints.txt	(revision b4f2a3084c5b31e8a221ae3b041b7623b07f2014)
++++ complaints.txt	(date 1588137716551)
+@@ -1,6 +1,0 @@
+-243f2#
+-213@
+-1231rfe$
+-dsf#
+-332f@
+-fds32$
+Index: Security/src/com/psou/GrievanceLogin.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.psou;\n\nimport javax.swing.*;\nimport java.awt.*;\nimport java.awt.event.ActionEvent;\nimport java.awt.event.ActionListener;\nimport java.awt.event.WindowAdapter;\nimport java.awt.event.WindowEvent;\nimport java.io.BufferedWriter;\nimport java.io.FileWriter;\nimport java.io.IOException;\n\npublic class GrievanceLogin extends JFrame {\n\n    Button submit, cancel;\n    TextField PNR;\n    TextArea title, desc;\n    Label lb_PNR, lb_title, lb_desc;\n    Frame Grievance;\n    Color blue = new Color(51,122,183);\n    Color white = new Color(255, 255, 255);\n    GrievanceLogin() {\n\n\n        Grievance=renderGrievanceLogin();\n        Grievance.setLayout(null);\n        Grievance.setVisible(true);\n    }\n    public Frame renderGrievanceLogin(){\n        Frame Gr_login;\n        Dimension d = new Dimension(50,100);\n        Gr_login = new Frame(\"Grievance Window\");\n        Gr_login.setBackground(white);\n        Gr_login.setSize(500,500);\n        Gr_login.setResizable(false);\n\n        lb_PNR = new Label(\"Enter PNR or Ticket Number :\");\n        lb_PNR.setBounds(80, 50, 160, 30);\n        Gr_login.add(lb_PNR);\n\n        PNR = new TextField();\n        PNR.setBounds(280, 50, 130, 30);\n        Gr_login.add(PNR);\n\n\n        lb_title = new Label(\"Enter Title :\");\n        lb_title.setBounds(80, 90, 100, 50);\n        Gr_login.add(lb_title);\n\n        title = new TextArea(10,50);\n        title.setBounds(280, 100, 200, 50);\n        Gr_login.add(title);\n\n        lb_desc = new Label(\"Enter Description :\");\n        lb_desc.setBounds(80, 170, 100, 50);\n        Gr_login.add(lb_desc);\n\n        desc = new TextArea(10,50);\n\n        desc.setBounds(280, 180, 200, 100);\n        Gr_login.add(desc);\n        submit = new Button(\"Submit\");\n        submit.setBounds(130, 400, 100, 30);\n        Gr_login.add(submit);\n        submit.setBackground(blue);\n\n        cancel = new Button(\"Cancel\");\n        cancel.setBounds(270, 400, 100, 30);\n        Gr_login.add(cancel);\n        cancel.setBackground(blue);\n        submit.addActionListener(new ActionListener() {\n            @Override\n            public void actionPerformed(ActionEvent actionEvent) {\n                try {\n                    BufferedWriter writer = new BufferedWriter(new FileWriter(\"complaints.txt\",true));\n                    String Pnr=PNR.getText();\n                    writer.write(Pnr+\"#\\n\");\n                    String t=title.getText();\n                    writer.write(t+\"@\\n\");\n                    String de=desc.getText();\n                    writer.write(de+\"$\\n\");\n                    writer.close();\n                } catch (IOException e) {\n                    e.printStackTrace();\n                }\n                HomePage frame = new HomePage();\n                frame.setVisible(true);\n                //set default close operation\n                Gr_login.dispose();\n                setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);\n            }\n        });\n\n        cancel.addActionListener(new ActionListener() {\n            @Override\n            public void actionPerformed(ActionEvent actionEvent) {\n                System.exit(0);\n            }\n        });\n\n\n        Gr_login.addWindowListener(new WindowAdapter() {\n            public void windowClosing(WindowEvent we) {\n                System.exit(0);\n            }\n        });\n\n        return  Gr_login;\n\n    }\n\n\n\n\n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Security/src/com/psou/GrievanceLogin.java	(revision b4f2a3084c5b31e8a221ae3b041b7623b07f2014)
++++ Security/src/com/psou/GrievanceLogin.java	(date 1588137716487)
+@@ -74,11 +74,11 @@
+                 try {
+                     BufferedWriter writer = new BufferedWriter(new FileWriter("complaints.txt",true));
+                     String Pnr=PNR.getText();
+-                    writer.write(Pnr+"#\n");
++                    writer.write("\n"+Pnr+"#");
+                     String t=title.getText();
+-                    writer.write(t+"@\n");
++                    writer.write(t+"@");
+                     String de=desc.getText();
+-                    writer.write(de+"$\n");
++                    writer.write(de+"$");
+                     writer.close();
+                 } catch (IOException e) {
+                     e.printStackTrace();
