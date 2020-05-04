@@ -8,7 +8,7 @@ import javax.swing.border.EmptyBorder;
 public class HomePage extends JFrame {
 
     static HomePage frame;
-    JButton complaint_btn, exit_btn;
+    JButton complaint_btn, exit_btn, staff_btn, disp_btn;
     Color blue = new Color(51,122,183);
     Color white = new Color(255, 255, 255);
     JTextField t1;
@@ -68,7 +68,24 @@ public class HomePage extends JFrame {
                 setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             }
         });
-
+        
+        staff_btn = new JButton("Staff");
+        staff_btn.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 24));
+        staff_btn.setBounds(100,80,290, 32);
+        staff_btn.setBackground(blue);
+        
+        contentPane.add(staff_btn);
+        
+        staff_btn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                Schedule schedule=new Schedule();
+                schedule.setVisible(true);
+                frame.dispose();
+                setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            }
+        });
+        
         exit_btn = new JButton("Exit");
         exit_btn.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 24));
         exit_btn.setBounds( 100,300,294, 32);
