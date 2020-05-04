@@ -8,7 +8,7 @@ import javax.swing.border.EmptyBorder;
 public class HomePage extends JFrame {
 
     static HomePage frame;
-    JButton complaint_btn, exit_btn, schedule_btn;
+    JButton complaint_btn, exit_btn, staff_btn, disp_btn;
     Color blue = new Color(51,122,183);
     Color white = new Color(255, 255, 255);
     JTextField t1;
@@ -69,14 +69,14 @@ public class HomePage extends JFrame {
             }
         });
         
-        schedule_btn = new JButton("Schedule");
-        schedule_btn.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 24));
-        schedule_btn.setBounds( 100,15,290, 32);
-        schedule_btn.setBackground(blue);
+        staff_btn = new JButton("Staff");
+        staff_btn.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 24));
+        staff_btn.setBounds(100,80,290, 32);
+        staff_btn.setBackground(blue);
         
-        contentPane.add(schedule_btn);
+        contentPane.add(staff_btn);
         
-        schedule_btn.addActionListener(new ActionListener() {
+        staff_btn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 Schedule schedule=new Schedule();

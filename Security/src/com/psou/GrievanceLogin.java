@@ -94,7 +94,12 @@ public class GrievanceLogin extends JFrame {
         cancel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                System.exit(0);
+            	HomePage frame = new HomePage();
+                frame.setVisible(true);
+                //set default close operation
+                Gr_login.dispose();
+                setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                //System.exit(0);
             }
         });
 
